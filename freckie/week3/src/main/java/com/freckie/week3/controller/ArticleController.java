@@ -1,5 +1,6 @@
 package com.freckie.week3.controller;
 
+import com.freckie.week3.annotation.BoardIdValidationCheck;
 import com.freckie.week3.payload.article.*;
 import com.freckie.week3.payload.board.PutBoardRequest;
 import com.freckie.week3.payload.board.PutBoardResponse;
@@ -23,6 +24,7 @@ public class ArticleController {
     private ArticleService articleService;
 
     @GetMapping("/boards/{board_id}/articles")
+    @BoardIdValidationCheck
     @ApiOperation(value="Get all articles in a specific board")
     @ApiResponses({
         @ApiResponse(code=200, message="Success")
